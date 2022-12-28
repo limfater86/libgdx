@@ -97,7 +97,7 @@ public class ShaderProgram implements Disposable {
 	private String log = "";
 
 	/** whether this program compiled successfully **/
-	private boolean isCompiled;
+	protected boolean isCompiled;
 
 	/** uniform lookup **/
 	private final ObjectIntMap<String> uniforms = new ObjectIntMap<String>();
@@ -124,13 +124,13 @@ public class ShaderProgram implements Disposable {
 	private String[] attributeNames;
 
 	/** program handle **/
-	private int program;
+	protected int program;
 
 	/** vertex shader handle **/
-	private int vertexShaderHandle;
+	protected int vertexShaderHandle;
 
 	/** fragment shader handle **/
-	private int fragmentShaderHandle;
+	protected int fragmentShaderHandle;
 
 	/** matrix float buffer **/
 	private final FloatBuffer matrix;
@@ -179,7 +179,7 @@ public class ShaderProgram implements Disposable {
 	 *
 	 * @param vertexShader
 	 * @param fragmentShader */
-	private void compileShaders (String vertexShader, String fragmentShader) {
+	protected void compileShaders (String vertexShader, String fragmentShader) {
 		vertexShaderHandle = loadShader(GL20.GL_VERTEX_SHADER, vertexShader);
 		fragmentShaderHandle = loadShader(GL20.GL_FRAGMENT_SHADER, fragmentShader);
 
@@ -748,7 +748,7 @@ public class ShaderProgram implements Disposable {
 		}
 	}
 
-	private void addManagedShader (Application app, ShaderProgram shaderProgram) {
+	protected void addManagedShader (Application app, ShaderProgram shaderProgram) {
 		Array<ShaderProgram> managedResources = shaders.get(app);
 		if (managedResources == null) managedResources = new Array<ShaderProgram>();
 		managedResources.add(shaderProgram);
@@ -806,7 +806,7 @@ public class ShaderProgram implements Disposable {
 	IntBuffer params = BufferUtils.newIntBuffer(1);
 	IntBuffer type = BufferUtils.newIntBuffer(1);
 
-	private void fetchUniforms () {
+	protected void fetchUniforms () {
 		((Buffer)params).clear();
 		Gdx.gl20.glGetProgramiv(program, GL20.GL_ACTIVE_UNIFORMS, params);
 		int numUniforms = params.get(0);
@@ -826,7 +826,7 @@ public class ShaderProgram implements Disposable {
 		}
 	}
 
-	private void fetchAttributes () {
+	protected void fetchAttributes () {
 		((Buffer)params).clear();
 		Gdx.gl20.glGetProgramiv(program, GL20.GL_ACTIVE_ATTRIBUTES, params);
 		int numAttributes = params.get(0);

@@ -1301,22 +1301,22 @@ public interface GL30 extends GL20 {
 // // C function void glGetProgramBinary ( GLuint program, GLsizei bufSize, GLsizei *length, GLenum *binaryFormat, GLvoid *binary
 // )
 //
-// public void glGetProgramBinary(
-// int program,
-// int bufSize,
-// java.nio.IntBuffer length,
-// java.nio.IntBuffer binaryFormat,
-// java.nio.Buffer binary
-// );
+ public void glGetProgramBinary(
+ int program,
+ int bufSize,
+ java.nio.IntBuffer length,
+ java.nio.IntBuffer binaryFormat,
+ java.nio.Buffer binary
+ );
 //
 // // C function void glProgramBinary ( GLuint program, GLenum binaryFormat, const GLvoid *binary, GLsizei length )
 //
-// public void glProgramBinary(
-// int program,
-// int binaryFormat,
-// java.nio.Buffer binary,
-// int length
-// );
+ public void glProgramBinary(
+ int program,
+ int binaryFormat,
+ java.nio.Buffer binary,
+ int length
+ );
 
 	// C function void glProgramParameteri ( GLuint program, GLenum pname, GLint value )
 

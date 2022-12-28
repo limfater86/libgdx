@@ -1885,6 +1885,20 @@ public class GL30Interceptor extends GLInterceptor implements GL30 {
 	}
 
 	@Override
+	public void glGetProgramBinary(int program, int bufSize, IntBuffer length, IntBuffer binaryFormat, Buffer binary) {
+		calls++;
+		gl30.glGetProgramBinary(program, bufSize, length, binaryFormat, binary);
+		check();
+	}
+
+	@Override
+	public void glProgramBinary(int program, int binaryFormat, Buffer binary, int length) {
+		calls++;
+		gl30.glProgramBinary(program, binaryFormat, binary, length);
+		check();
+	}
+
+	@Override
 	public void glProgramParameteri (int program, int pname, int value) {
 		calls++;
 		gl30.glProgramParameteri(program, pname, value);
