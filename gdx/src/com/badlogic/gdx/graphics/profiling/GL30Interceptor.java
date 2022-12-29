@@ -17,6 +17,7 @@
 package com.badlogic.gdx.graphics.profiling;
 
 import java.nio.Buffer;
+import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.LongBuffer;
@@ -1885,14 +1886,14 @@ public class GL30Interceptor extends GLInterceptor implements GL30 {
 	}
 
 	@Override
-	public void glGetProgramBinary(int program, int bufSize, IntBuffer length, IntBuffer binaryFormat, Buffer binary) {
+	public void glGetProgramBinary(int program, int bufSize, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
 		calls++;
 		gl30.glGetProgramBinary(program, bufSize, length, binaryFormat, binary);
 		check();
 	}
 
 	@Override
-	public void glProgramBinary(int program, int binaryFormat, Buffer binary, int length) {
+	public void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
 		calls++;
 		gl30.glProgramBinary(program, binaryFormat, binary, length);
 		check();

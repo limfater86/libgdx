@@ -36,6 +36,7 @@ import org.lwjgl.opengl.GL33;
 import org.lwjgl.opengl.GL40;
 import org.lwjgl.opengl.GL41;
 import org.lwjgl.opengl.GL43;
+import org.lwjgl.opengl.GL45;
 
 import com.badlogic.gdx.utils.GdxRuntimeException;
 
@@ -654,6 +655,16 @@ class LwjglGL30 extends LwjglGL20 implements com.badlogic.gdx.graphics.GL30 {
 	@Override
 	public void glResumeTransformFeedback () {
 		GL40.glResumeTransformFeedback();
+	}
+
+	@Override
+	public void glGetProgramBinary(int program, int bufSize, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
+		GL41.glGetProgramBinary(program, length, binaryFormat, binary);
+	}
+
+	@Override
+	public void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
+		GL41.glProgramBinary(program, binaryFormat, binary);
 	}
 
 	@Override

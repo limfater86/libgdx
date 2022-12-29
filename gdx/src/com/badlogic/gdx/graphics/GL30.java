@@ -1306,7 +1306,7 @@ public interface GL30 extends GL20 {
  int bufSize,
  java.nio.IntBuffer length,
  java.nio.IntBuffer binaryFormat,
- java.nio.Buffer binary
+ java.nio.ByteBuffer binary
  );
 //
 // // C function void glProgramBinary ( GLuint program, GLenum binaryFormat, const GLvoid *binary, GLsizei length )
@@ -1314,7 +1314,7 @@ public interface GL30 extends GL20 {
  public void glProgramBinary(
  int program,
  int binaryFormat,
- java.nio.Buffer binary,
+ java.nio.ByteBuffer binary,
  int length
  );
 

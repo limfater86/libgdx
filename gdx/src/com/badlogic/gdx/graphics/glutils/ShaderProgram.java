@@ -94,7 +94,7 @@ public class ShaderProgram implements Disposable {
 	private final static ObjectMap<Application, Array<ShaderProgram>> shaders = new ObjectMap<Application, Array<ShaderProgram>>();
 
 	/** the log **/
-	private String log = "";
+	protected String log = "";
 
 	/** whether this program compiled successfully **/
 	protected boolean isCompiled;

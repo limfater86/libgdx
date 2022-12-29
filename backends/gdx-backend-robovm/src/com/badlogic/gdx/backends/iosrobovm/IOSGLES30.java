@@ -4,6 +4,7 @@ package com.badlogic.gdx.backends.iosrobovm;
 import com.badlogic.gdx.graphics.GL30;
 
 import java.nio.Buffer;
+import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.LongBuffer;
@@ -238,6 +239,16 @@ public class IOSGLES30 extends IOSGLES20 implements GL30 {
 	public native void glPauseTransformFeedback ();
 
 	public native void glResumeTransformFeedback ();
+
+	@Override
+	public void glGetProgramBinary(int program, int bufSize, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
+
+	}
+
+	@Override
+	public void glProgramBinary(int program, int binaryFormat, ByteBuffer binary, int length) {
+
+	}
 
 	public native void glProgramParameteri (int program, int pname, int value);
 
